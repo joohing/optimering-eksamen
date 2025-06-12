@@ -98,3 +98,42 @@ The above is constructed from an LP. The LP:
 In the dictionary, there are more variabes than in the original LP. This is because your mom ate
 them in the original LP (she so fat she has her own gravitational field). The new variables are
 called slack variables.
+
+Constructing a dictionary with $m$ constraints and $n$ variables requires a feasible origin.
+Notice that the slack variables are instantiated as the constraints, minus the left-hand side
+of the equation. The dictionary becomes a system of equations with $m + n + 1$ variables, where
+the 1 is the $z$ (objective function). There are $m+1$ equations expressing $m+1$ variables as
+linear combinations of the rest.
+
+The left-hand variables, except for $z$, are called the basic, variables, and the right-hand ones
+are called the non-basic ones. The set of basic variables is called the basis. The basic solution
+for a dictionary is the solution by assigning 0 to all non-basic variables. A basic solution is
+feasible if the values of the basic variables, after assigning 0 to all non-basic variables, are at
+least zero (i.e. their non-negativity constraint is obeyed). A dictionary is feasible if its basic
+solution is feasible.
+
+The current solution while iterating over a dictionary with the simplex method is the basic feasible
+solution. Geometrically, basic feasible solutions are corner points of the polyhedron $F$. This
+means our corner traversal is represented by the basic solution changing.
+
+Initializing a dictionary is a mapping from constraints to equations. Each constraint is mapped, as
+mentioned, to the right-hand side of the constraint minus the left-hand side. This is then assigned
+to the basic variables that are slack variables we create.
+
+## Pivoting
+
+We must find entering and leaving variables. Entering variables enter the basis, leaving ones leave.
+There are heuristics for how exactly to find these, but entering variables must have positive
+coefficients in the objective function, and leaving variables must preserve the non-negativity of
+the basic variables. Importantly, if an entering variable can be found which has non-negative ($\geq
+0$ coefficients in all equations, you can find arbitrarily good solutions.
+
+## Simplex, finally
+
+One phase Simplex: what was described above.
+
+Input: an LP $P$ in standard form with feasible origo. Construct the dictionary. While there are
+positive coefficients in $z$, find basic variable with the strictest bound on increasing $x_i$ i.e.
+if you go past this it will be negative. Perform the substitution (by rewriting the $x_j$ equation
+and substituting $x_i$ in terms of $x_j$ into all the places where $x_i$ was used). When no more
+positive coefficients in $z$, return the basic solution of the resulting $D$.
