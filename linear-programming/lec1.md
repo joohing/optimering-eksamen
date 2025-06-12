@@ -1,5 +1,5 @@
 ### ------------------------------------------------------------------
-###                    Linear Programming (poggers) 		
+###                    Linear Programming (poggers)         
 ### ------------------------------------------------------------------
 
 Very shortly put, it is simply optimizing a linear function w.r.t. linear constraints.
@@ -7,8 +7,8 @@ Very shortly put, it is simply optimizing a linear function w.r.t. linear constr
 The matrix form of a maximization problem would be:
 
 \begin{align}
-	\text{Maximize}&\ c^Tx\\
-	\text{Subject to}&\ Ax \leq b
+    \text{Maximize}&\ c^Tx\\
+    \text{Subject to}&\ Ax \leq b
 \end{align}
 
 Or, they could be split into many constraints instead, with both $\leq$, $\geq$, and $=$ between
@@ -29,10 +29,11 @@ I know what you're thinking at this point: "That's really cool, Jonathan, but wh
 form of a linear program?" Well, here it is!
 
 \begin{align}
-	\text{Maximize}& \ c_1x_1 + c_2x_2 + ... + c_nx_n \\
-	\text{Subject to}& \\
-		&a_{11}x_1 + a_{12}x_2 + ... + a_{1n}x_n \leq b_1\\
-		&a_{21}x_1 + a_{22}x_2 + ... + a_{2n}x_n \leq b_2\\
-		&...\\
-		&a_{m1}x_1 + a_{m2}x_2 + ... + a_{mn}x_n \leq b_m
+    \text{Maximize}& \ c_1x_1 + c_2x_2 + ... + c_nx_n \\
+    \text{Subject to}& \\
+        &a_{11}x_1 + a_{12}x_2 + ... + a_{1n}x_n \leq b_1\\
+        &a_{21}x_1 + a_{22}x_2 + ... + a_{2n}x_n \leq b_2\\
+        &...\\
+        &a_{m1}x_1 + a_{m2}x_2 + ... + a_{mn}x_n \leq b_m
 \end{align}
+
