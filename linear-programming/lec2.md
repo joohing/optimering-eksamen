@@ -80,3 +80,15 @@ For an arbitrary linear program in standard form,
 1. If there is no optimal solution, then the problem is either infeasible or unbounded.
 2. If a feasible solution exists, then a basic feasible solution exists.
 3. If an optimal solution exists, then an optimal feasible solution exists.
+
+The proof for these: the two-phase simplex algorithm! Wowies!
+
+# Geometry
+
+In a linear program, we have $m$ constraints and $n$ variables, each with a
+non-negativity constraint. Therefore we have $m+n$ half spaces in
+$\mathbf{R}^n$, and the set of feasible solutions is the intersection between
+all of them.
+
+This sounds super crazy but looking at just one scribble of a triangle will make
+you go "aaahhhhhhh".
