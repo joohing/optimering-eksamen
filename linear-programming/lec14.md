@@ -74,4 +74,68 @@ the plane representing the violated constraint by $\text{dist}(c_i, p)$ i.e. the
 distance between the center point of the ellipsoid and the plane. Then, use this
 offset plane to separate the ellipsoid into two. The side to which the plane of
 the constraint lies is the half of the ellipsoid within which there are feasible
-points. We now redraw the ellipsoid around the feasible half. 
+points. We now redraw the ellipsoid around the feasible half. Then repeat.
+
+If you find a solution and want to improve it further, you can keep iterating by
+using the objective function as a splitter plane.
+
+## Why does taht work tho (I ain't fixing that spelling error)
+
+He does some math, idk. At most $K = 16n(n + 1)L$ iterations are needed.
+
+## What to do if the feasible region has 0 in some dimension
+
+Then set $b_i' = b_i + 1/(2^{2L})$. This will affect the feasible region's
+extent in all dimensions such that none of them will be zero. The original
+program is feasible if and only if the new one is.
+
+## Implementation & issues
+
+See the slides for the implementation (he gives some formulas, don't wanna write
+them all down here).
+
+In the formulas, there is a square root. Which is a massive issue! So compute
+with bad precision, make each new ellipsoid slightly bigger to account for
+errors, double number of iterations. See why the ellipsoid method is not really
+used in practice yet?
+
+A unique feature of it, though, is that we don't per se need the inequalities,
+just an "oracle" meaning we don't need to think about the number of inequalities
+when solving the problem! Hell yeah.
+
+# Okay moight, so what is an interior point algorithm?
+
+Well moight, an interior point algorithm is one in which we start on the
+interior rather than goin' round to all the corners of the polyhedron. NO
+THANKS!!!!!!
+
+This one is kinda funky. First, get the dual problem of the one you are working
+with. This is relatively easy. Then convert it to a barrier problem, where you
+use the primal slack variables for some of the stuff.
+
+Now you have some terms with log and then some more stuff in them. The intuition
+is that as soon as the numbers that the logs are taken of get small, then the
+whole thing goes very negative (oh no!) and thus it doesn't matter how much you
+try to optimize your objective function. The numbers that the logs are taken of
+are the $x_j$'s, which means that you should get somewhere near 1 at least with
+those, and the $w_i$'s, which means you want an even distance (it's a decreasing
+function, so larger distances have diminishing returns) between the left-hand
+sides and the right-hand sides of the constraints. So you end up with very
+"safe" bets. Decreasing $\mu$ thus decreases this effect, letting the actual
+objective function take over more and more. Thus letting the algorithm get
+closer and closer to the optimal value.
+
+The path traced by the interior point algorithm is the solutions along the way
+when adjusting the $\mu$ value. Solutions you say? Yes, because actually the
+solution is now a plane bound by a strict equality sign by each constraint,
+rather than the inequality stuff we're used to.
+
+## Sounds good moight, but please provide me some theoretical guarantees for the existence of a solution moight
+
+Ok moight, if primal feasible set has a non-empty interior, and is bounded (lmao
+unbounded fans be fuming rn) then for each $\mu \geq 0$ there is a unique
+solution to the crazy system of equations that he derived on the slides that I
+am not going to rewrite here.
+
+I am not going to go through the rest of this lecture because my guy Kristoffer
+was so savage that he decided not to talk about the hardest parts.
