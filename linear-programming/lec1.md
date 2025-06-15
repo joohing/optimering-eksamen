@@ -137,3 +137,13 @@ positive coefficients in $z$, find basic variable with the strictest bound on in
 if you go past this it will be negative. Perform the substitution (by rewriting the $x_j$ equation
 and substituting $x_i$ in terms of $x_j$ into all the places where $x_i$ was used). When no more
 positive coefficients in $z$, return the basic solution of the resulting $D$.
+
+# Analysis
+
+In the slides, we are given a short analysis of why the solution is optimal:
+
+- We terminate when all coefficents have reached 0 in the objective function.
+- All the variables are assigned zero at this point. So the solution gets a value equal
+    to the constant part of the objective function.
+- Since the variables are constrained to be non-negative, we must have an optimal solution.
+    (Any change in variables would yield a smaller value than the one we have now.)
