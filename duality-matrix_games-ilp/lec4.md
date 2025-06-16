@@ -111,8 +111,4 @@ infeasible. Thus the primal is infeasible if and only if the dual is unbounded.
 
 ## Strict Complementary Slackness
 
-Instead of either the slacks being 0 or the dual variables being 0 for both the
-primal and the dual problem, exactly one of the two must hold for all of the
-indeces of one, and exactly one of the two must hold for all indeces of the
-other. So, e.g. for the dual problem, either ALL of the primal constraints have
-zero slack, or all of
+The same, but for each index, only ONE of the conditions must hold.
