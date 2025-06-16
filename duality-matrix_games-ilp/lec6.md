@@ -84,4 +84,11 @@ the row, then necessarily (by strict complementary slackness) there must be an
 inequality in the constraint for the maxxer. This means he gains more than the
 value of the game.
 
+## Nash equilibriums
 
+Theorem: a pair of randomized strategies are a Nash equilibrium if and only if
+they are both optimal.
+
+## Three-card Poker, a sequential move game
+
+Model this by doing a tree of probabilities.
