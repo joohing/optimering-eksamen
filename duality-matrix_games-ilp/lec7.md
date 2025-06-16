@@ -125,5 +125,29 @@ Basically we can use the LP relaxation to find upper bounds on how good our
 solutions are going to be. If we then can branch out into more subproblems, then
 we can solve the LP relaxation of those and provide an upper bound on what we
 can hope to find in further subproblems of those. If some upper bound is worse
+than the current best found bound, we just return from the current branch with
+no solution.
+
+The branch and bound algorithm is as follows:
+
+\begin{itemize}
+    \item Solve LP relaxation. If the problem is not feasible, then neither is
+        the ILP. If the solution is integer, return it.
+
+    \item Otherwise, if the objective function turns out to be worse than the
+        current best bound, then return from the branch with no solution
+
+    \item Otherwise, pick an entry in the $x$ vector that isn't an integer.
+        Branch and recursively solve the bounded ILP, setting the upper bound
+        $u_i = \lfloor x_i* \rfloor$. Branch and recursively solve the bounded
+        ILP with $l_i = \lceil x_i* \rceil$. Output the best solution of the
+        two.
+
+\end{itemize}
+
+Termination is easy: the base case is that if for all $i$, $l_i = u_i$, then we
+terminate. Since the two are integers and we either decrease one $l_i$ or a
+$u_i$, we eventually terminate (they are integers and will at some point
+coincide).
 
 
