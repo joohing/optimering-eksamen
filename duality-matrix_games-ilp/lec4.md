@@ -72,4 +72,47 @@ Where $x$ and $y$ are the basic variables for the primal and the dual problems
 respectively, and $w$ and $z$ are slack variables for the primal and dual
 problems respectively.
 
+## Ayo when is my LP origo feasible?
 
+In practice, we often want to minimize cost. This means each coefficient in the
+objective function is probably positive (since it is cost - otherwise you'd just
+make infinite product). For situations where all of those are positive, the dual
+is origo feasible.
+
+## Some rules for taking the dual of a general LP
+
+| Primal (maximization)           | Dual (minimization)           |
+|---------------------------------|-------------------------------|
+| $\leq$ for constraint           |     $\geq0$ for variable      |
+| $\geq$ for constraint           |     $\leq0$ for variable      |
+| $=$ for constraint              |     free for variable         |
+| $\geq$ for variable             |     $\geq$ for variable       |
+| $\leq$ for variable             |     $\leq0$ for variable      |
+| free for variable               |     $=$ for variable          |
+
+
+# Can we prove infeasibility or unboundedness?
+
+So as we saw we can easily see if a problem was solved optimally if, by reading
+off the solution to the dual from the final dictionary and plugging it into the
+objective function, we get the same value as the primal's objective function.
+
+Can we do similarly for the other two outcomes of an LP?
+
+YES!!!! Of course we can you nerd.
+
+## Farkas Lemma
+
+The $Ax \leq b$ has no solutions if and only if there is a $y$ such that $A^Ty =
+0$, $y\geq 0$, $b^Ty < 0$.
+
+What this means is that, if you can find such a $y$, then the primal is
+infeasible. Thus the primal is infeasible if and only if the dual is unbounded.
+
+## Strict Complementary Slackness
+
+Instead of either the slacks being 0 or the dual variables being 0 for both the
+primal and the dual problem, exactly one of the two must hold for all of the
+indeces of one, and exactly one of the two must hold for all indeces of the
+other. So, e.g. for the dual problem, either ALL of the primal constraints have
+zero slack, or all of
