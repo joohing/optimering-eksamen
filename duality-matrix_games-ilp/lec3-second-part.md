@@ -38,4 +38,22 @@ We get the dual problem
 
 Which is kinda crazy ngl.
 
+# Weak (cringe) duality theorem
 
+If $x$ is feasible for $P$ and $y$ is feasible for $D$, then:
+
+$$ c^Tx \leq b^Ty $$
+
+So all feasible points for the primal yield a smaller result in the objective
+function than for all feasible points for the dual.
+
+# Strong (based) duality theorem
+
+If some $x\*$ is optimal for the primal, and some $y\*$ is optimal for the dual,
+then the objective functions for the primal and the dual are equal when
+evaluated at those points, i.e.
+
+$$ c^Tx\* = b^Ty\* $$
+
+What this also implies is that an LP max problem can be expressed as an
+equivalent minimization problem, yielding the exact same optimal value!!
