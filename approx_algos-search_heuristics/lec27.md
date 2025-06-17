@@ -33,6 +33,11 @@ added in the search, you may end up in such a situation).
 
 (TODO read up on "Speeding up k-OPT" list, incl neighbour lists)
 
+### Iterated LK
+
+Do new search after you are done from a starting point one 4-OPT move away.
+(What is a double bridge move?)
+
 ## Metropolis algorithm and Simulated Annealing
 
 Allow bad move with probability. "Temperature" as in LLMs.
@@ -40,9 +45,19 @@ Allow bad move with probability. "Temperature" as in LLMs.
 The $y$ value (current best) is then assigned $z$ with some probability. In the
 slides he writes $min(e^{(v(y)-v(z))/T}, 1)$, where $T$ is some input (and the
 other two are $y$, the current best, and $z$ the current neighbour in
-consideration). That will, if the solution is good enough so that $v(y)$ is at
-least $T$ greater than $v(z)$, always set $y:=z$. Of course if the solution
-sucks, then the probability is less than 1, but still present - this is where
-the magic happens.
+consideration). That will, if the numerator is positive, always set $y:=z$. Of
+course if the solution sucks, then the probability is less than 1, but still
+present - this is where the magic happens. Also notice - for a negative exponent
+(solution worse than before) then an increase in $T$ increases the probability
+that the solution is picked anyways.
 
+The convergence picked here (using $e$) is "slow", so other expressions could be
+picked if you wanna.
 
+### Simulated Annealing
+
+Like the metropolis algo, but we change T while we run. Lowered over the course.
+
+## Evolutionary algorithms for TSP
+
+Seems cursory, don't care
