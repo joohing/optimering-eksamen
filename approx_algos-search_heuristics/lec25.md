@@ -33,3 +33,28 @@ with largest intersect with U. Set U = U \ S.
 
 This problem does not have a constant approx ratio - instead, ln$(n)$. Don't
 know what $n$ is though LMAO.
+
+## Approximation schemes
+
+... is what we've been talking about this entire time, LMAO.
+
+### PTAS (Polynomial-time Approx Schemes) and FPTAS (fully)
+
+Takes an instance of an optimization problem and a parameter $\epsilon$ and
+outputs something with approx ratio $1 + \epsilon$ (or minus, if it's a max
+problem).
+
+If for every fixed $\epsilon$ the algo runs in poly time in the input length,
+it's a PTAS. FPTAS if the time is also upper-bounded by a polynomial in $1 /
+\epsilon$ (figure out what the intuition is here).
+
+## An example FPTAS for Knapsack
+
+You know what knapsack is (values, weights, max value with sum of weights less
+than weight limit).
+
+The example bases itself on some other algorithm that I don't know (todo, read
+about it).
+
+There's a table at the bottom of the slides with bounds on the approximation
+ratios that cannot be surpassed at the exception of if $P=NP$.
