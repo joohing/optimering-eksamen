@@ -92,6 +92,16 @@ doesn't exist, then the problem is either unbounded or infeasible.
 
 Ellipsoid algorithm, which has less issues pertaining to termination, since it
 is easily provable that the volume is finite and integral, and reduces each
-iteration (thus at some point reaching zero). (Sketch the ellipsoid algorithm.)
+iteration (thus at some point reaching zero). (Sketch the ellipsoid algorithm,
+which is not very efficient in practice.)
 
-The interior point method, which is basically
+Interior point methods, which is more efficient in practice, can beat the
+Simplex algorithm on very large inputs. They rely on something called the
+barrier problem. To create a barrier problem from an LP in standard form, add
+slack variables as usual, so that the constraints are $Ax + w = b$. Then, add
+$\mu (\sum_j \text{log} x_j + \sum_i \text{log} w_i)$ to the objective function.
+Intuition: when close to zero, these two terms become very negative.  So we are
+encouraged to be far away from all boundaries - both the $x_j \geq 0$
+boundaries, but also we want the slack variable $w_i$ to be positive (i.e. we
+are not close to the $b_i$). Smaller values of $\mu$ are thus more permissive of
+progress towards the optimum, and across iterations we get a "central path".
