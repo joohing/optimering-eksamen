@@ -16,6 +16,11 @@ Then introduce dictionaries. Then explain the simplex algorithm.
 Origo-infeasible? Oh no! Bam: Auxiliary problem. Two-phase simplex. Lastly, an
 overview of the ellipsoid and interior point algorithms.
 
+- LP (gen/standard form)
+- Dicts & simplex
+- Auxiliary problem/two-phase simplex
+- Other algos (ellipsoid & interior point)
+
 ## Niddy griddy LMAO
 
 - What is linear programming?

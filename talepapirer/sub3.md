@@ -8,6 +8,11 @@ Based on lectures 9, 10, 11, 12, 13
 - 12: FF, Edmond-Karps algos for max flow.
 - 13: Cycle cancelling algo.
 
+- Networks
+- Flows
+- Min cut/maxflow
+- Residuals/FF algo
+
 ## Overview of the presentation
 
 What is a network? D = (N, A) DAG.

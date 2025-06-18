@@ -16,6 +16,12 @@ dual. Give properties about the dual problem (not necessarily Farkas', don't
 really wanna go in that direction). Then start on ILP. LP relaxations.
 Branch-and-Cut. Cutting planes.
 
+- LP & Duality
+- Compl slackness
+- Weak/strong dual
+- ILP
+- Branch & Cut
+
 ## Details
 
 Motivation for duality: can we establish nice upper bounds for the primal?

@@ -7,6 +7,11 @@ Based on lectures 15, 16, 17, 18.
 - 17: (circuit) SAT, Bool func representations, truth tables formulas and circuits.
 - 18: Cook's theorem
 
+- Turing machines
+- Efficiency/P vs NP
+- Reductions
+- CSAT to SAT
+
 ## Overview of the presentation
 
 What's a turing machine. What is efficiency. The class of P. NP and reductions.
