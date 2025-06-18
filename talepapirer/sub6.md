@@ -15,3 +15,7 @@ search, approx): what is hard about solving an NP problem, why not just solve it
 exactly? What is an approx algo? Approximation ratios. Local search generally,
 neighbourhoods etc. k-OPT neighbourhoods for TSP. Lin-Kernighan stuff (more or
 less just talk about lec 27).
+
+## Details
+
+

@@ -15,3 +15,15 @@ Based on lectures 19, 20, 21, 22, 23
 What does NP mean? What does NPC mean? Implications of something being in NPC.
 Show 3SAT is in NPC. Show the three graph problems in lec 20 are in NPC.
 NP-hardness and pseudopoly time algos if time allows.
+
+## Details
+
+NP: x such that exists y polynomial time verifiable solution (also bounded in
+length). NPC: in NP, and NP-hard. NP-hard: all NP problems reducible to it.
+
+What is a reduction? Reduce CSAT to SAT (shows SAT in NPC).
+
+Show equivalence of indep set (over G with K nodes), clique (over compl of G),
+vertex cover (V \ indep set is vertex cover).
+
+Show Indep set in NPC.
